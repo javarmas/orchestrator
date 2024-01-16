@@ -4,7 +4,7 @@ import axios from 'axios';
 import { exec } from 'child_process';
 
 const app = express();
-const port = 8080;
+const PORT = process.env.PORT || 8080;
 
 
 app.use(bodyParser.json());
@@ -26,8 +26,8 @@ app.get('/record', (req, res) => {
   res.send('Audio recording initiated from orchestrator!');
 });
 
-app.listen(port, () => {
-  console.log(`Welcome to the A-PRESTO orchestrator...Orchestrator listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Welcome to the A-PRESTO orchestrator...Orchestrator listening at http://localhost:${PORT}`);
 });
 
 
