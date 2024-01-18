@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     res.send('Welcome to the orchestrator for the A-Presto model!');
   });
 
