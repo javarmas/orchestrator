@@ -15,9 +15,15 @@ app.get('/', (req, res) => {
 
 
 // Initiate audio playback from orchestrator
-app.get('/play', (req, res) => {
+app.get('/play', async(req, res) => {
   //triggerAudioPlayback();
-  res.send('Audio playback initiated from orchestrator!');
+  const response = await axios.post('http://https://orchestrator-r407.onrender.com//execute?command=./~/AIY-voice-kit-python/src/examples/voice/voice_recorder.py');
+
+  if (response.status === 200) {
+    res.send('Audio recording initiated from orchestrator!');
+  } else {
+    res.send('Error initiating audio recording');
+  }
 });
 
 // Initiate audio recording from orchestrator
