@@ -6,7 +6,7 @@ import { exec } from 'child_process';
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const play_status = 'n';
+let play_status = 'n';
 
 app.use(bodyParser.json());
 
