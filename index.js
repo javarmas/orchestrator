@@ -6,6 +6,7 @@ import { exec } from 'child_process';
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const play_status = 'n';
 
 app.use(bodyParser.json());
 
@@ -17,7 +18,9 @@ app.get('/', (req, res) => {
 // Initiate audio playback from orchestrator
 app.get('/play', (req, res) => {
   //triggerAudioPlayback();
-  res.send('Audio playback initiated from orchestrator!');
+  //res.send('Audio playback initiated from orchestrator!');
+  res.send(play_status);
+  play_status = 'n';
 });
 
 // Initiate audio recording from orchestrator
@@ -25,6 +28,14 @@ app.get('/record', (req, res) => {
   //triggerAudioRecording()  
   res.send('Audio recording initiated from orchestrator!');
 });
+
+// Initiate
+app.get('/initialize', (req, res) => {
+  //triggerAudioPlayback();
+  play_status = 's';
+  res.send('Audio playback initiated from orchestrator!');
+});
+
 
 app.listen(PORT, () => {
   console.log(`Welcome to the A-PRESTO orchestrator...Orchestrator listening at http://localhost:${PORT}`);
