@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 let play_status = 'n';
 
 app.use(bodyParser.json());
-
+                                                                     
 app.get('/', (req, res) => {
     res.send('Welcome to the orchestrator for the A-Presto model!');
   });
@@ -17,8 +17,6 @@ app.get('/', (req, res) => {
 
 // Initiate audio playback from orchestrator
 app.get('/play', (req, res) => {
-  //triggerAudioPlayback();
-  //res.send('Audio playback initiated from orchestrator!');
   res.send(play_status);
   play_status = 'n';
 });
@@ -35,7 +33,6 @@ app.get('/initialize', (req, res) => {
   play_status = 's';
   res.send('Audio playback initiated from orchestrator!');
 });
-
 
 app.listen(PORT, () => {
   console.log(`Welcome to the A-PRESTO orchestrator...Orchestrator listening at http://localhost:${PORT}`);
