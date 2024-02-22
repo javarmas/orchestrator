@@ -33,7 +33,7 @@ app.get('/initialize', (req, res) => {
   //triggerAudioPlayback();
   //play_status = 's';
   rec_status = 's';
-  res.send('Audio playback initiated from orchestrator!');
+  res.send('Audio recording initiated from orchestrator!');
 });
 
 app.listen(PORT, () => {
