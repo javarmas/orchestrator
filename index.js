@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 let play_status = 'n';
+let rec_status = 'n';
 
 app.use(bodyParser.json());
                                                                      
@@ -23,14 +24,15 @@ app.get('/play', (req, res) => {
 
 // Initiate audio recording from orchestrator
 app.get('/record', (req, res) => {
-  //triggerAudioRecording()  
-  res.send('Audio recording initiated from orchestrator!');
+  //triggerAudioRecording() 
+  res.send(rec_status);
 });
 
 // Initiate
 app.get('/initialize', (req, res) => {
   //triggerAudioPlayback();
-  play_status = 's';
+  //play_status = 's';
+  rec_status = 's';
   res.send('Audio playback initiated from orchestrator!');
 });
 
